@@ -6,6 +6,9 @@ header {
   padding: 0 10px;
   gap: 2em;
   box-shadow: var(--shadow-on-white);
+  position: sticky;
+  top: 0;
+  font-size: 1.5rem;
 }
 
 header div {
@@ -45,6 +48,7 @@ header form button {
   padding: 10px 10px;
   border-radius: 5px;
   box-shadow: var(--shadow-on-white);
+  font-size: 1rem;
 }
 header form {
   gap: 5px;
