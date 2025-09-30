@@ -1,0 +1,68 @@
+header {
+  display: grid;
+  grid-template-columns: 0.7fr 1.5fr 1fr;
+  background-color: var(--secondary-color);
+  margin: 0 40px;
+  padding: 0 10px;
+  gap: 2em;
+  box-shadow: var(--shadow-on-white);
+}
+
+header div {
+  min-width: 50px;
+  max-width: 300px;
+  height: auto;
+  align-self: center;
+}
+
+header form,
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header form input {
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  padding: 5px;
+}
+header form input:focus {
+  outline: none;
+  border: 2px solid var(--primary-color);
+}
+header form button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  box-shadow: var(--shadow-on-white);
+}
+header form {
+  gap: 5px;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+nav a svg {
+  color: var(--primary-color);
+  width: 40px;
+  height: 40px;
+}
+
+nav a {
+  border-bottom: 8px solid var(--primary-color);
+}
