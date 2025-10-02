@@ -1,0 +1,36 @@
+.container {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  border: 5px solid var(--tertiary-color);
+  border-radius: 15px;
+}
+
+.card {
+  width: 3600px;
+  display: flex;
+  transition: transform 0.5s ease-out;
+}
+
+.container img {
+  max-width: 400px;
+  height: 400px;
+  z-index: 0;
+  padding: 20px;
+}
+
+.animeC {
+}
+@keyframes carousel {
+  from {
+    transform: translateX(400px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
