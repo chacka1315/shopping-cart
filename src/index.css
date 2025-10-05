@@ -81,3 +81,16 @@ body {
     'Segoe UI', sans-serif;
   background-color: var(--main-bgk-color);
 }
+
+button {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+  filter: brightness(90%);
+}
+button:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
