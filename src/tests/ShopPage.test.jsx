@@ -1,5 +1,10 @@
 import ShopPage from '../features/ShopPage';
-import { render, screen, within } from '@testing-library/react';
+import {
+  render,
+  screen,
+  within,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import { expect, describe, vi, it, beforeEach } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { createMemoryRouter, RouterProvider, Outlet } from 'react-router';
@@ -35,6 +40,7 @@ const router = createMemoryRouter(routes, { initialEntries: ['/shoppage'] });
 const fakeRouter = createMemoryRouter(fakeRoutes, {
   initialEntries: ['/shoppage'],
 });
+
 const items = [
   {
     image: null,
@@ -57,16 +63,17 @@ beforeEach(() => {
 });
 
 describe('ShopPage component', () => {
-  it('renders items when fetch is in progress', () => {
+  it('renders items when fetch is in progress', async () => {
     render(<RouterProvider router={router} />);
 
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
+    await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
   });
 
   it('renders all items with ther informations', async () => {
     render(<RouterProvider router={router} />);
 
-    const cards = await screen.findAllByTestId('item-card');
+    const cards = await screen.findAllByTestId(/item-card/i);
 
     expect(cards.length).toBe(2);
     expect(screen.getAllByText(/100/i)).toHaveLength(2);
@@ -87,12 +94,12 @@ describe('ShopPage component', () => {
   });
 });
 
-//test button behavior
+//card buttons behavior
 describe('ShopPage cards', () => {
   it('buttons increase and decrease the input value', async () => {
     render(<RouterProvider router={router} />);
     const user = userEvent.setup();
-    const cards = await screen.findAllByTestId('item-card');
+    const cards = await screen.findAllByTestId(/item-card/i);
     const firstCard = cards[0];
     const incrBtn = within(firstCard).getByRole('button', {
       name: /increment/i,
@@ -115,7 +122,7 @@ describe('ShopPage cards', () => {
   it('input value change when user type a valid number', async () => {
     render(<RouterProvider router={router} />);
     const user = userEvent.setup();
-    const cards = await screen.findAllByTestId('item-card');
+    const cards = await screen.findAllByTestId(/item-card/i);
     const firstCard = cards[0];
     const input = within(firstCard).getByRole('textbox');
 
@@ -127,7 +134,7 @@ describe('ShopPage cards', () => {
   it('handle correctly the bads input values', async () => {
     render(<RouterProvider router={router} />);
     const user = userEvent.setup();
-    const cards = await screen.findAllByTestId('item-card');
+    const cards = await screen.findAllByTestId(/item-card/i);
     const firstCard = cards[0];
     const input = within(firstCard).getByRole('textbox');
     const decrBtn = within(firstCard).getByRole('button', {
@@ -149,7 +156,7 @@ describe('ShopPage cards', () => {
   it('add to cart button calls the updateCart calbk to update the cart', async () => {
     render(<RouterProvider router={fakeRouter} />);
     const user = userEvent.setup();
-    const cards = await screen.findAllByTestId('item-card');
+    const cards = await screen.findAllByTestId(/item-card/i);
     const firstCard = cards[0];
     const incrBtn = within(firstCard).getByRole('button', {
       name: /increment/i,
@@ -167,7 +174,7 @@ describe('ShopPage cards', () => {
   it('reset the input value after click on add to cart button', async () => {
     render(<RouterProvider router={router} />);
     const user = userEvent.setup();
-    const cards = await screen.findAllByTestId('item-card');
+    const cards = await screen.findAllByTestId(/item-card/i);
     const firstCard = cards[0];
     const incrBtn = within(firstCard).getByRole('button', {
       name: /increment/i,
