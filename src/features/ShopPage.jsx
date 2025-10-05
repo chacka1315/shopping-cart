@@ -17,7 +17,9 @@ function ShopPage() {
 
     let newCart = [...cart];
     if (itemIndex !== -1) {
-      newCart[itemIndex].quantity = quantity;
+      const newQuantity = newCart[itemIndex].quantity + quantity;
+      const updatedItem = { ...newCart[itemIndex], quantity: newQuantity };
+      newCart[itemIndex] = updatedItem;
     } else {
       let newItem = items.find((item) => item.id === itemId);
       if (newItem) {
@@ -95,7 +97,7 @@ function Card({ children, itemId, handleAdd }) {
   };
 
   return (
-    <div className={styles.card} data-testid="item-card">
+    <div className={styles.card} data-testid="shop-item-card">
       {children}
       <div className={styles.manageItem}>
         <div>
