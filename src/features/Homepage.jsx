@@ -4,7 +4,7 @@ import Carousel from './Carousel';
 
 function Homepage() {
   return (
-    <div className={styles.homepage} data-testid="presentation">
+    <div className={styles.homepage} data-testid="homepage">
       <div>
         <div className={styles.presentation}>
           <p className={styles.title}>Welcome to Shopy</p>
