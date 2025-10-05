@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 describe('Homepage component', () => {
   it('renders the welcome text bloc', () => {
     render(<Homepage />);
-    expect(screen.getByTestId(/presentation/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/homepage/i)).toBeInTheDocument();
   });
 
   it('renders the carousel', () => {
