@@ -32,8 +32,8 @@
 }
 
 .noProduct img {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 .noProduct {
   width: 100vw;
@@ -42,15 +42,15 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--tertiary-color);
-  padding: 20px 30px;
+  padding: 16px 24px;
 }
 .noProduct ul {
-  font-size: 24px;
+  font-size: 19px;
 }
 
 @media (max-width: 600px) {
   .noProduct ul {
-    font-size: 16px;
-    padding: 20px 10px;
+    font-size: 13px;
+    padding: 16px 8px;
   }
 }

@@ -2,13 +2,15 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background-color: var(--tertiary-color);
-  padding: 20px 30px;
-  gap: 8px;
+  padding: 16px 24px;
+  gap: 6.5px;
+  width: 99vw;
+  max-width: 1800px;
 }
 .card {
   background-color: var(--secondary-color);
   border-radius: 5px;
-  padding: 10px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,18 +23,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1rem;
-  gap: 5px;
+  font-size: 0.8rem;
+  gap: 4px;
 }
 
 .item img {
   height: auto;
   justify-self: center;
-  height: 300px;
+  height: 220px;
+  padding-bottom: 5px;
 }
 
 .item {
-  height: 400px;
+  height: 320px;
 }
 
 .manageItem svg {
@@ -44,7 +47,7 @@
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  gap: 2em;
+  gap: 1.6em;
 }
 
 .manageItem div button {
@@ -58,12 +61,12 @@
 }
 
 .manageItem div input {
-  width: 50px;
+  width: 32px;
   text-align: center;
   border: none;
   border-radius: 3px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .manageItem div input:focus {
@@ -77,23 +80,23 @@
   border: none;
   border-radius: 3px;
   width: 80%;
-  padding: 5px 10px;
+  padding: 4px 8px;
   box-shadow: var(--shadow-on-white);
   font-weight: 600;
 }
 .itemInfos {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .price {
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
 .loading {
-  font-size: 2rem;
+  font-size: 1.5rem;
   height: 100vh;
-  width: 100vw;
+  width: 96vw;
   background-color: var(--tertiary-color);
   color: var(--primary-color);
   font-weight: 800;
@@ -104,8 +107,8 @@
 
 .error {
   composes: loading;
-  padding: 20px;
-  font-size: 1.5rem;
+  padding: 16px;
+  font-size: 1.2rem;
 }
 @media (max-width: 700px) {
   .shopPage {
@@ -115,32 +118,42 @@
   }
 
   .item img {
-    height: 200px;
+    height: 100px;
   }
 
   .item {
-    height: 350px;
+    height: 220px;
   }
   .manageItem div {
     width: 90%;
-    gap: 5px;
+    gap: 4px;
   }
   .manageItem > button {
     width: 90%;
+  }
+
+  .itemInfos {
+    font-size: 13px;
   }
 }
 
 @media (min-width: 701px) and (max-width: 1000px) {
   .shopPage {
     grid-template-columns: repeat(3, 1fr);
-    padding: 10px;
-    gap: 4px;
+    padding: 8px;
+    gap: 3px;
   }
 
   .item {
-    height: 400px;
+    height: 320px;
   }
   .item img {
-    max-height: 250px;
+    max-height: 200px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .shopPage {
+    padding: 16px 0;
   }
 }

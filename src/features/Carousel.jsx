@@ -12,18 +12,30 @@ import { useEffect, useState } from 'react';
 
 function Carousel() {
   const [translate, setTranslate] = useState(0);
-
-  const handleCarousel = () => {
-    setTranslate((prev) => {
-      const next = (prev + 400) % (9 * 400);
-      return next;
-    });
-  };
+  const [screenWidth, setScreenWidth] = useState(window.screen.width);
+  const [isMobile, setIsMobile] = useState(screenWidth <= 600);
 
   useEffect(() => {
+    if (screenWidth <= 600) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, [screenWidth]);
+
+  useEffect(() => {
+    setTranslate(0);
+    const handleCarousel = () => {
+      setTranslate((prev) => {
+        const next = isMobile
+          ? (prev + 300) % (9 * 300)
+          : (prev + 400) % (9 * 400);
+        return next;
+      });
+    };
     const timeId = setInterval(handleCarousel, 5000);
     return () => clearInterval(timeId);
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className={styles.container} data-testid="carousel">

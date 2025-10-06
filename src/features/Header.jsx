@@ -53,7 +53,6 @@ const Header = function ({ cartCount, updateItems, shopData }) {
         />
         <Button onClick={handleSearchSubmit} name="Research" type="Submit" />
       </form>
-
       <nav>
         <NavLink
           to="/"
@@ -84,7 +83,6 @@ const Header = function ({ cartCount, updateItems, shopData }) {
           </NavLink>
         </div>
       </nav>
-
       {isOpen && <DropdownMenu isOpen={isOpen} closeMenu={closeMenu} />}
     </header>
   );
